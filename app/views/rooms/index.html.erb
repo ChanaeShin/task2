@@ -20,7 +20,7 @@
                 <% @rooms.each do |room| %>
                 <tr>
                     <td><%= image_tag room.image.to_s %></td>
-                    <td class="posts-name"><%= room.name %></td>
+                    <td class="posts-name"><%= link_to room.name %></td>
                     <td class="posts-content"><%= room.intro %></td>
                     <td class="price-icon"><%= room.price %></td>
                     <td><%= room.created_at.to_s(:datetime_jp) %></td>
