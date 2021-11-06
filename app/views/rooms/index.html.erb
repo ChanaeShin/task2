@@ -1,0 +1,31 @@
+<h4 class="pb-4">登録済みルーム一覧</h4>
+
+  <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+
+<div class = "room-posts">
+          <table>
+              <thead>
+                <tr>
+                  <th>ルーム画像</th>
+                  <th>ルーム名</th>
+                  <th>ルーム紹介</th>
+                  <th>料金</th>
+                  <th>作成日</th>
+                </tr>
+              </thead>
+    
+              <tbody>
+                <% @rooms.each do |room| %>
+                <tr>
+                    <td><%= image_tag room.image.to_s %></td>
+                    <td class="posts-name"><%= room.name %></td>
+                    <td class="posts-content"><%= room.intro %></td>
+                    <td class="price-icon"><%= room.price %></td>
+                    <td><%= room.created_at.to_s(:datetime_jp) %></td>
+                </tr>
+                <% end %>
+              </tbody>
+          </table>
+</div>

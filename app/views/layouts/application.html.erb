@@ -11,6 +11,46 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header">
+      <div class = "header_inner">
+        
+        <div class="header-left-nav">
+          <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"), "/" %>
+        </div>
+
+      <div class="nav-item">
+        <% if user_signed_in? %>
+          <div class="header-right-nav">
+            <h4><%= current_user.email %> </h4>
+            
+            <div class="nav-item">
+              <img class="mx-3 p-1 host-icon nav-trigger" alt="メニュー" src="/uploads/user/image/979/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2021-10-27_15.18.09.png">
+              <ul class="header-nav-menu">
+                <li><%= link_to "ルーム登録", "/rooms/new" %></li>
+                <li><%= link_to "予約済みルーム一覧", "/rooms/index" %></li>
+                <li><%= link_to "登録済みルーム一覧", "/rooms/index" %></a></li>
+                <li><%= link_to "設定", "/users/edit" %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </div>
+          
+        <% else %> 
+          <div class="header-right-nav">
+            
+              <div class ="btn btn-primary my-2 mx-3"><%= link_to "ログイン", "/users/sign_in" %></div>
+              <div class ="btn btn-secondary"><%= link_to "登録する", "/users/sign_up" %></div>
+            
+          </di>
+        <% end %>
+      </div>
+      </div>
+      </div>
+    </header>
+    
+     <%= yield %>
+     
+    <footer class="footer">
+      <p>© 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>

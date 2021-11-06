@@ -1,0 +1,74 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.room-new .room-view {
+    background-color: #F6F8F9;
+    border-left: 2px solid #e2e2e2;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.h5, h5 {
+    font-size: 1.25rem;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+
+/*ここからrooms index. */
+.room-posts, .reservations {
+    max-width: 100vw;
+    padding: 30px 60px;
+}
+
+.pb-4, .py-4 {
+    padding-bottom: 1.5rem 
+}
+
+.h4, h4 {
+    font-size: 1.5rem;
+}
+
+.room-posts table {
+    min-width: 800px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.room-posts table thead tr {
+    border-top: 1px solid #eaedef;
+    border-bottom: 1px solid #eaedef;
+}
+
+.room-posts table thead th, .reservations table thead th {
+    padding: 8px 15px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
