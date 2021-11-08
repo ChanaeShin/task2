@@ -27,8 +27,9 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'rails-i18n'
-gem 'pry-rails'
+     gem 'rails-i18n'
+    gem 'pry-rails'
+
 
 
 group :development, :test do
@@ -60,4 +61,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'carrierwave'
-gem 'rmagick'

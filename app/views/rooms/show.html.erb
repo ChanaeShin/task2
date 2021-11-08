@@ -1,20 +1,23 @@
 <table>
       <tr>
-        <th>名前</th>
+        <td><%= @room.image %></td>
+      </tr>
+      <tr>
         <td><%= @room.name %></td>
       </tr>
       <tr>
-        <th>メールアドレス</th>
         <td><%= @room.address %></td>
       </tr>
       <tr>
-        <th>年齢</th>
         <td><%= @room.intro %></td>
       </tr>
       <tr>
-        <th>一言紹介</th>
         <td><%= @room.price %></td>
       </tr>
-    </table>
- 
+</table>
+      
+        <ul>
+            <li><%= link_to "予約する", "/reservations/new" %></li>
+        </ul>
+
     

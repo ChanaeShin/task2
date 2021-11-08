@@ -1,2 +1,35 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<h4 class="pb-4">予約済みルーム一覧</h4>
+
+  <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+
+<div class = "room-posts">
+          <table>
+              <thead>
+                <tr>
+                  <th>予約者(User_id)</th>
+                  <th>ルーム画像</th>
+                  <th>ルーム名</th>
+                  <th>ルーム紹介</th>
+                  <th>合計料金</th>
+                  <th>開始日</th>
+                  <th>終了日</th>
+                  <th>予約確定日時</th>
+                </tr>
+              </thead>
+    
+              <tbody>
+                <% @reservations.each do |reservation| %>
+                <tr>
+                    <td><%= reservation.user_id %></td>
+                    <td><%= image_tag room.image.to_s %></td>
+                    <td class="posts-name"><%= link_to room.name, room %></td>
+                    <td class="posts-content"><%= room.intro %></td>
+                    <td class="price-icon"><%= reservation.price %></td>
+                    <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
+                </tr>
+                <% end %>
+              </tbody>
+          </table>
+</div>
