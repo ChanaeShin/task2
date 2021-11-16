@@ -17,11 +17,9 @@ class RoomsController < ApplicationController
       else
         render "new"
       end
-      
   end
  
   def show
-    
     @room = Room.find(params[:id])
   end
  

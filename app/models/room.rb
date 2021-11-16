@@ -8,5 +8,4 @@ class Room < ApplicationRecord
   validates :price, numericality: true
   validates :address, presence: true
   validates :image, presence: true
-
 end

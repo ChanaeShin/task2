@@ -28,10 +28,7 @@
               <th><%= f.label :people,"人数" %></th>
               <td><%= f.text_field :'people', value: @people  %></td>
             </tr>
-        <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.hidden_field :room_id, value: @room.id %>
         <tr><th></th><td><%= f.submit "予約する"%></td></tr>
       <% end %>
 </table>
-      
-
-    

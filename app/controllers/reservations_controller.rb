@@ -32,7 +32,6 @@ class ReservationsController < ApplicationController
   def show
     @reservation = Reservation.find(params[:id])
     @room = Room.find(@reservation.room_id)
-   
   end
  
   def edit
@@ -48,5 +47,4 @@ class ReservationsController < ApplicationController
   def reservation_params 
      params.require(:reservation).permit(:amount, :start_date, :end_date, :people,:user_id,:room_id)
   end
-
 end

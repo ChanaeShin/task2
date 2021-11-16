@@ -20,7 +20,7 @@
               </thead>
     
               <tbody>
-                  <% @rooms.each do |room| %>
+                <% @rooms.each do |room| %>
                   <% room.reservations.each do |reservation| %>
                   <tr>
                       <td><%= reservation.user_id %></td>
