@@ -10,7 +10,7 @@ class RoomsController < ApplicationController
   end
  
   def create
-    @room = Room.new(params.require(:room).permit(:name, :intro, :price, :address, :image))
+    @room = Room.new(room_params)
       if @room.save
         flash[:notice] = "Room was successfully created."
         redirect_to :rooms
@@ -37,7 +37,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:image)
+    params.require(:room).permit(:name, :intro, :price, :address, :image)
   end
 
 
@@ -46,6 +46,7 @@ class RoomsController < ApplicationController
     reservations = @room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
     render json: reservations
   end
+
   
   #　予約 終了日のAJAX
   def preview

@@ -1,6 +1,6 @@
 class Room < ApplicationRecord
   belongs_to :user
-  has_one :reservations
+  has_many :reservations
   mount_uploader :image, ImageUploader
   
   validates :name, presence: true
@@ -8,4 +8,5 @@ class Room < ApplicationRecord
   validates :price, numericality: true
   validates :address, presence: true
   validates :image, presence: true
+
 end
