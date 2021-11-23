@@ -1,0 +1,26 @@
+<div class="container-fiuld room">
+    <h4 class="pb-4">
+        検索結果：<% if @room_cnt == 0 %>0<%else %><%= @rooms.count %><%end%>件
+    </h4>
+    
+    <% @rooms.each_slice(3) do |slice| %>
+        <div class="row">
+            <% slice.each do |room| %>
+                <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <div class="room-frame-inner">
+                        <a href="/rooms/<%= room.id %>">
+                            <div class="room-image-out">
+                                <%= image_tag room.image ,class: "room-image"%>
+                            </div>
+                            <div class="room-profile">
+                                <p class="room-profile-name"><%= room.name %></p>
+                                <p class="room-profile-city"><%= room.address %></p>
+                                <p class="room-profile-price price-icon"><%= room.price %></p>
+                            </div>
+                        </a> 
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>

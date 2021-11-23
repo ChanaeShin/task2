@@ -5,6 +5,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
+      t.string :user_name,               null: false, default: ""
+      t.string :introduction,               null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -32,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.string :username 
+
       t.timestamps null: false
     end
 

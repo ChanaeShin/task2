@@ -1,10 +1,11 @@
 class CreateReservations < ActiveRecord::Migration[6.1]
   def change
     create_table :reservations do |t|
-      t.references :user, null: false, foreign_key: true
-      t.references :room, null: false, foreign_key: true
-      t.datetime :start_date
-      t.datetime :end_date
+      t.integer :room_id ,:null =>  false
+      t.integer :user_id ,:null =>  false
+      t.date :start_date ,:null =>  false
+      t.date :end_date ,:null =>  false
+      t.integer :total_amount,:null =>  false
       t.integer :people
 
       t.timestamps

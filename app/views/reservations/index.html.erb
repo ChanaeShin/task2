@@ -1,39 +1,31 @@
-<h4 class="pb-4">予約済みルーム一覧</h4>
-
-  <% if flash[:notice] %>
-      <p class="notice"><%= flash[:notice] %></p>
-    <% end %>
-
-<div class = "room-posts">
-          <table>
-              <thead>
-                <tr>
-                  <th>予約者(User_id)</th>
-                  <th>ルーム画像</th>
-                  <th>ルーム名</th>
-                  <th>ルーム紹介</th>
-                  <th>合計料金</th>
-                  <th>開始日</th>
-                  <th>終了日</th>
-                  <th>予約確定日時</th>
-                </tr>
-              </thead>
-    
-              <tbody>
+<div class="container-fiuld reservations">
+    <h4 class="pb-4">予約済みルーム一覧</h4>
+    <table>
+        <thead>
+            <tr align="center">
+                <th>ルーム画像</th>
+                <th>ルーム名</th>
+                <th>ルーム紹介</th>
+                <th>合計料金</th>
+                <th>開始日</th>
+                <th>終了日</th>
+                <th>予約確定日時</th>
+            </tr>
+        </thead>
+        <tbody>
                 <% @rooms.each do |room| %>
-                  <% room.reservations.each do |reservation| %>
-                  <tr>
-                      <td><%= reservation.user_id %></td>
-                      <td ><%= image_tag room.image.to_s , size: '100x100' %></td>
-                      <td class="posts-name"><%= link_to room.name, room %></td>
-                      <td class="posts-content"><%= room.intro %></td>
-                      <td class="price-icon"><%= reservation.amount %></td>
-                      <td class="price-icon"><%= reservation.start_date.to_s(:datetime_jp) %></td>
-                      <td class="price-icon"><%= reservation.end_date.to_s(:datetime_jp) %></td>
-                      <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
-                  </tr>
-                  <% end %>
+                    <% room.reservations.each do |reservation| %>
+                        <tr>
+                            <td><a href="/rooms/<%= room.id %>"><%= image_tag room.image,class: "reservations-image" %></td>
+                            <td class="posts-name"><a href="/rooms/<%= room.id %>"><%= room.name %></a></td>
+                            <td class="posts-content"><%= room.content %></td>
+                            <td class="price-icon"><%= reservation.total_amount %></td>
+                            <td><%= reservation.start_date %></td>
+                            <td><%= reservation.end_date %></td>
+                            <td><%= reservation.created_at %></td>
+                        </tr>
+                    <% end %>
                 <% end %>
-              </tbody>
-          </table>
+        </tbody>
+    </table>
 </div>
