@@ -36,10 +36,16 @@
       <% if user_signed_in? %>
       <div class="header-right-nav">
         <div class="nav-item d-sm-inline-block d-none">
-          hello!
+          <%= @user.user_name%>
         </div>
+        
         <div class="nav-item">
-          <img class="mx-3 p-1 host-icon nav-trigger" alt="メニュー" src="/assets/img_kyoto.jpg">
+            <% if  current_user.avatar.attached? %>
+              <%= image_tag @user.avatar,class: "icon-image host-icon" %>
+            <% else %>
+              <img class="host-icon" src="/assets/default_icon.jpg">
+            <%end%>
+            
           <ul class="header-nav-menu">
             <li><%=link_to "ルーム登録", new_room_path %></li>
             <li><%=link_to "予約済みルーム一覧", reservations_path %></li>
@@ -57,12 +63,9 @@
         </div>
       </div>
       <% end %>
-
- 
     </div>
   </header>
- 
- 
+  
   <div class="clearfix"></div>
   <script>
     $(function () {
@@ -74,7 +77,7 @@
  
   <div class="notifications">
     <div class="notice"><%= notice %></div>
-    <!--<div class="alert"><%= alert %></div>-->
+    <%= alert %>
   </div>
 
   <%= yield %>
@@ -84,5 +87,4 @@
   </footer>
  
 </body>
- 
 </html>

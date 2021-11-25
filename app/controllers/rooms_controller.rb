@@ -2,19 +2,23 @@ class RoomsController < ApplicationController
   
   def index
     @user = User.all
+    @user = User.find(current_user.id)
     @rooms = Room.all
   end
 
   def posts
     @user = User.all
+    @user = User.find(current_user.id)
     @rooms = Room.all
   end
 
   def show
     @room = Room.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def search
+    @user = User.find(current_user.id)
     area = params[:area]
     keyword  = params[:keyword]
     @rooms = Room.where( "address LIKE ? OR name LIKE ? ", "#{area}", "#{keyword}")
@@ -22,14 +26,15 @@ class RoomsController < ApplicationController
   end
 
   def new
+    @user = User.find(current_user.id)
     @room = Room.new
   end
 
   def create
+    
     @room = Room.new(room_params)
       if @room.save
         flash[:notice] = "Room was successfully created."
-        # Room.last(1) は登録直後の予約IDを取得して詳細画面へ遷移するときに使用
         last_id = Room.last(1)
         redirect_to controller: :rooms, action: :show, id: last_id
       else
