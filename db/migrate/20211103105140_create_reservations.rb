@@ -6,7 +6,6 @@ class CreateReservations < ActiveRecord::Migration[6.1]
       t.date :start_date ,:null =>  false
       t.date :end_date ,:null =>  false
       t.integer :total_amount,:null =>  false
-      t.integer :people
 
       t.timestamps
     end

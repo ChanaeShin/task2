@@ -31,7 +31,7 @@ class RoomsController < ApplicationController
   end
 
   def create
-    
+    @user = User.find(current_user.id)
     @room = Room.new(room_params)
       if @room.save
         flash[:notice] = "Room was successfully created."
