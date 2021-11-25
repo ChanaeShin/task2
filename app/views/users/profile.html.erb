@@ -1,0 +1,64 @@
+<div class="container-fiuld user">
+    <div class="row">
+        <div class="col-lg-2 user-nav user-nav-pc d-lg-block d-none">
+            <ul>
+                <li class=""><a href="/users/account">アカウント</a></li>
+                <li class="active"><a href="/users/profile">プロフィール</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-2 user-nav user-nav-mobile d-lg-none">
+            <ul>
+                <li class=""><a href="/users/account">アカウント</a></li>
+                <li class="active"><a href="/users/profile">プロフィール</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-10 user-view">
+            <div class="user-view-box">
+                <div class="update-content">
+                    <div class="row">
+                        <h5>プロフィール</h5>
+                    </div>
+                </div>
+                <%= form_with model: @user ,url: users_update_path do |f| %>
+                    <div class="update-content">
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="icon-box">
+                                <% if  current_user.avatar.attached? %>
+                                    <%= image_tag @user.avatar,class: "icon-image host-icon" %>
+                                <% else %>
+                                    <img class="host-icon" src="/assets/default_icon.jpg">
+                                <%end%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <%= f.label :avatar,"アイコン画像",class: "col-md-3 required-a" %>
+                            <%= f.file_field :avatar ,class: "mb-4 col-md-9" ,placeholder: "アイコン画像をアップロード",id: "user_image" %>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <%= f.label :user_name ,"名前" ,class: "col-md-3 required-a"%>
+                            <%= f.text_field :user_name , value: @user.user_name, class: "form-control mb-4 col-md-9" ,placeholder: "名前を入力" , id: "user_name"%>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">          
+                            <%= f.label :content ,"自己紹介" ,class: "col-md-3 required-a"%></th>
+                            <%= f.text_area :introduction , value: @user.introduction, class: "form-control mb-4 col-md-9" , placeholder: "自己紹介を入力" ,id: "user_introduction", rows: 5 %>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <%= f.submit "更新" ,class: "col-md-2 btn btn-primary mx-3"%>
+                        </div>
+
+                    </div>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</div>
